@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    
+
+    <title>{% block title %}Evans Osore{% endblock %}</title>
+
+</head>
+<body>
+<header>
+    <a href="#" class="logo">Evans Osore</a>
+    <ul>
+        <li><a href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#issues">Issues</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</header>
+
+<main>
+    {% block content %}
+        <section id="home">
+            <h2>Welcome to Evans Osore Campaign</h2>
+
+            <section id="gallery">
+                <h3>Gallery</h3>
+                <div class="gallery">
+                    <!-- Educational Pics -->
+                    <h4>Educational</h4>
+                    {% for pic in educational_pics %}
+                        <div class="gallery-item">
+                            <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                            <p>{{ pic.title }}</p>
+                        </div>
+                    {% endfor %}
+                    <!-- Development Pics -->
+                    <h4>Development</h4>
+                    {% for pic in development_pics %}
+                        <div class="gallery-item">
+                            <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                            <p>{{ pic.title }}</p>
+                        </div>
+                    {% endfor %}
+                    <!-- Economic Pics -->
+                    <h4>Economic</h4>
+                    {% for pic in economic_pics %}
+                        <div class="gallery-item">
+                            <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                            <p>{{ pic.title }}</p>
+                        </div>
+                    {% endfor %}
+                    <!-- Meetings Pics -->
+                    <h4>Meetings</h4>
+                    {% for pic in meetings_pics %}
+                        <div class="gallery-item">
+                            <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                            <p>{{ pic.title }}</p>
+                        </div>
+                    {% endfor %}
+                    <!-- Event Pics -->
+                    <h4>Events</h4>
+                    {% for pic in events_pics %}
+                        <div class="gallery-item">
+                            <img src="{{ pic.image.url }}" alt="{{ pic.title }}">
+                            <p>{{ pic.title }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section id="news">
+                <h3>Latest News</h3>
+                {% for news in latest_news %}
+                    <div class="news-item">
+                        <h4>{{ news.title }}</h4>
+                        <p>{{ news.content|truncatewords:20 }}</p>
+                        <a href="{% url 'news_detail' news.id %}">Read More</a>
+                    </div>
+                {% endfor %}
+            </section>
+
+            <section id="issues">
+                <h3>Issues</h3>
+                {% for issue in issues %}
+                    <div class="issue-item">
+                        <h4>{{ issue.title }}</h4>
+                        <p>{{ issue.content|truncatewords:20 }}</p>
+                        <a href="{% url 'issue_detail' issue.id %}">Read More</a>
+                    </div>
+                {% endfor %}
+            </section>
+
+            <section id="events">
+                <h3>Upcoming Events</h3>
+                {% for event in upcoming_events %}
+                    <div class="event-item">
+                        <h4>{{ event.title }}</h4>
+                        <p>{{ event.description }}</p>
+                        <p>Date: {{ event.date }}</p>
+                    </div>
+                {% endfor %}
+            </section>
+        </section>
+    {% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2025 Evans Osore Campaign</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../gallery/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}Upcoming Events{% endblock %}
+
+{% block content %}
+    <section id="events">
+        <h2>Upcoming Events</h2>
+        {% for event in upcoming_events %}
+            <div class="event-item">
+                <h4>{{ event.title }}</h4>
+                <p>{{ event.description }}</p>
+                <p>Date: {{ event.date }}</p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
