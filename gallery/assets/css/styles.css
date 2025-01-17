@@ -31,6 +31,7 @@ header {
     transition: transform 0.3s ease, color 0.3s ease;
     cursor: pointer;
     margin-top: -16px;
+    white-space: nowrap;
 }
 
 .logo:hover {
@@ -42,28 +43,44 @@ nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    background: black;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Ensures vertical alignment across all items */
     gap: 30px;
     list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: flex; /* Ensures the icon and text stay aligned */
+    align-items: center; /* Align icon and text vertically */
 }
 
 nav li a {
-    bottom: 20px;
+    display: flex; /* Allows the icon and text to align side by side */
+    align-items: center; /* Ensures icon and text are vertically aligned */
     color: white;
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 1px;
     transition: color 0.2s ease-in-out;
+    padding: 5px 10px; /* Adds consistent padding around links */
+}
+
+nav li a i {
+    margin-right: 5px; /* Adds spacing between the icon and text */
+    font-size: 16px; /* Adjusts icon size to match text */
 }
 
 nav li a:hover {
     color: greenyellow;
 }
+
 
 .nav_btn {
     background: yellowgreen;
@@ -118,8 +135,8 @@ nav li a:hover {
 }
 
 .nav-item .dropdown-menu .dropdown-item:hover {
-    background-color: greenyellow; /* Highlight background on hover */
-    color: black; /* Change text color on hover */
+    background: none; /* Highlight background on hover */
+    color: yellowgreen; /* Change text color on hover */
 }
 .hero_img {
     position: relative; /* Changed from absolute to relative */
@@ -171,6 +188,13 @@ nav li a:hover {
     letter-spacing: -1px;
 }
 
-.hero_img .hero_content .
+/*.hero_img .carousel_box {*/
+/*    position: relative;*/
+/*    min-width: 950px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background: rgba(0, 0, 0, 0.2);*/
+/*}*/
 
 
